@@ -39,3 +39,5 @@ jspm_packages
 
 #Excluding build directory
 public/
+# Local Netlify folder
+.netlify

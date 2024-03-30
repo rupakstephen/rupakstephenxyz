@@ -1,13 +1,23 @@
 import '../css/App.css';
-import Navbar from  "./Navbar.js"
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom' 
+import NavBar from './NavigationBar';
+import Home from "./Home"
+import About from './About';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-      </header>
-    </div>
+    <>
+    <NavBar/>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+    </>
   );
 }
 
