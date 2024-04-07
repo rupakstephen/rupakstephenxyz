@@ -1,7 +1,7 @@
 # Dockerfile for React client
 
 # Build react client
-FROM node:lts
+FROM node:lts-slim
 
 # Working directory be app
 RUN mkdir -p /usr/src/app
