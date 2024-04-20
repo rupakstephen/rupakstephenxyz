@@ -51,6 +51,27 @@ function About() {
                   </ul>
                 </div>
               </Stack>
+              <h4>Skills</h4>
+              <Stack gap={2}>
+                <div>
+                  <h6>Programming Langages</h6>
+                  <ul>
+                    <li>Python (Proficient)</li>
+                    <li>C++ (Proficient)</li>
+                    <li>C (Working Knowledge)</li>
+                    <li>SQL (Working Knowledge)</li>
+                  </ul>
+                  <h6>Technologies/Frameworks</h6>
+                  <ul>
+                    <li>React</li>
+                    <li>Angular</li>
+                    <li>Node</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <li>PostgreSQL</li>
+                  </ul>
+                </div>
+              </Stack>
             </div>
           </Stack>
         </Col>
