@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // // Connect to MongoDB
-// mongoose.connect('mongodb://localhost/test-db', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://root:<password>@rupakstephenxyz.auj1iea.mongodb.net/?retryWrites=true&w=majority");
 
 // Define routes and middleware
 app.listen(PORT, () => {
