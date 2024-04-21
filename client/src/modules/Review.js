@@ -1,15 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useEffect, useState } from 'react';
 import ReviewCard from './ReviewCard';
-
-
-const flexboxCenter = {
-  "display": "flex",
-  "justify-content": "center",
-}
 
 function Review() {
   const [data, setData] = useState(null);
