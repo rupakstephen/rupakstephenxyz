@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const app = express();
+const DB_PORT = process.env.DB_PORT || 27017;
 const PORT = process.env.PORT || 5000;
 const DB_USER = process.env.DB_USER || "root";
 const DB_PASS = process.env.DB_PASS || "main";
@@ -12,7 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 // // Connect to MongoDB
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`).then(() => {console.log("Connection to DB Established")})
+mongoose.connect(`mongodb://127.0.0.1:${DB_PORT}`).then(() => {console.log("Connection to DB Established")})
+//mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`).then(() => {console.log("Connection to DB Established")})
 
 // Define routes and middleware
 app.listen(PORT, () => {
