@@ -2,44 +2,29 @@ version: '3.7'
 
 services:
   server:
+    container_name: node_server
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: myapp-server
-    container_name: myapp-node-server
+    image: rupakstephenxyz-server
     command: node server.js
-    volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - "5000:5000"
     environment:
-      - NODE_ENV=development
-    networks:
-      - app-network
-  client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
-    image: myapp-client
-    container_name: myapp-react-client
-    command: npm start
-    volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
-    depends_on:
-      - server
+      NODE_ENV: production
+      DB_URL: mongodb
     ports:
-      - "3000:3000"
-    networks:
-      - app-network
-
-networks:
-    app-network:
-        driver: bridge
-
-volumes:
-    data-volume:
-    node_modules:
-    web-root:
-      driver: local
+      - 5000:5000
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    container_name: mongodb
+    image: mongodb-raspberrypi4-unofficial-r7.0.4
+    restart: always
+    expose: 
+      - 27017:27017
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo db:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
