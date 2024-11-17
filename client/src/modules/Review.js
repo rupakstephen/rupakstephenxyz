@@ -8,7 +8,7 @@ function Review() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews/all")
+    fetch("http://localhost:5000/reviews")
       .then(response => response.json())
       .then(json => setData(json))
       .catch(error => console.error(error))
