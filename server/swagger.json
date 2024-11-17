@@ -1,0 +1,165 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Rupak's Personal Website",
+      "description": "Just some backend endpoints for me to use for things.",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:5000",
+    "tags": [
+      {
+        "name": "reviews",
+        "description": "Everything for editing reviews"
+      }
+    ],
+    "paths": {
+        "/reviews": {
+            "get": {
+                "tags": [
+                    "reviews"
+                ],
+                "summary": "grabs all the different reviews in the database",
+                "description": "",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "List of Ratings",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref":"#/definitions/RatingValue"
+                            }
+                        }
+                    }
+                }       
+            },
+            "post": {
+                "tags": [
+                    "reviews"
+                ],
+                "summary": "takes a review entry and puts it into the database",
+                "description": "",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in":"body",
+                        "name": "body",
+                        "description": "Rating Object without ID",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RatingParam"
+                        } 
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "msg": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+
+                            }
+                        }
+                    }
+                } 
+            },
+            "delete": {
+                "tags": [
+                    "reviews"
+                ],
+                "summary": "clears out all reviews in database",
+                "description": "",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "List of Ratings",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }       
+            }
+        }
+    },
+    "definitions": {
+        "RatingValue": {
+            "type":"object",
+            "properties": {
+                "review_id": {
+                    "type": "string"
+                },
+                "media_name": {
+                    "type": "string"
+                },
+                "media_type": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "review_str": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "completed": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "RatingParam": {
+            "type":"object",
+            "properties": {
+                "media_name": {
+                    "type": "string"
+                },
+                "media_type": {
+                    "type": "string"
+                },
+                "rating": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "review_str": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "completed": {
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+  }
