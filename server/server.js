@@ -6,21 +6,27 @@ const {v4: uuidv4} = require("uuid");
 const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const DB_MEDIUM = process.env.DB_MEDIUM || "local"
 const DB_PORT = process.env.DB_PORT || 27017;
 const PORT = process.env.PORT || 5000;
 const DB_USER = process.env.DB_USER || "root";
-const DB_PASS = process.env.DB_PASS || "main";
+const DB_PASS = process.env.DB_PASS || "root";
 const DB_URL = process.env.DB_URL || "127.0.0.1";
 
 app.use(cors());
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+console.log("DB Medium: " + DB_MEDIUM)
 // // Connect to MongoDB
-// local connection to docker container
-mongoose.connect(`mongodb://${DB_URL}:${DB_PORT}`).then(() => {console.log("Connection to DB Established")})
-// remote connection to atlas
-//mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`).then(() => {console.log("Connection to DB Established")})
+if (DB_MEDIUM == "local"){
+  // local connection to docker container
+  mongoose.connect(`mongodb://${DB_URL}:${DB_PORT}`).then(() => {console.log("Connection to DB Established")})
+} else {
+  // remote connection to atlas
+  mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`).then(() => {console.log("Connection to DB Established")})
+}
+
 
 // Define routes and middleware
 app.listen(PORT, () => {
