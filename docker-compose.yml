@@ -1,6 +1,16 @@
 version: '3.7'
 
 services:
+  client:
+    container_name: react_app
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    image: rupakstephenxyz-client
+    command: npm start
+    ports: 
+      - 3000:3000
+
   server:
     container_name: node_server
     build:

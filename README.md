@@ -10,3 +10,5 @@ wget https://github.com/themattman/mongodb-raspberrypi-docker/releases/download/
 docker load --input mongodb.ce.pi4.r7.0.4-mongodb-raspberrypi-docker-unofficial.tar.gz
 
 docker run -p 27017:27017 --name mongo -it mongodb-raspberrypi4-unofficial-r7.0.4
+
+
