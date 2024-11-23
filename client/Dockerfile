@@ -14,23 +14,17 @@ FROM node:${NODE_VERSION}-alpine
 ENV NODE_ENV=production
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
-WORKDIR /usr/src/client
+WORKDIR /usr/src/app
 
-COPY public/ /usr/src/client/public
-COPY src/ /usr/src/client/public
-COPY package.json /usr/src/client
+COPY . .
 
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them into
-# into this layer.
 RUN npm install
 
 # Run the app as a non-root user
-USER node
+# USER node
 
 # Expose the port that the application listens on.
 EXPOSE 3000
 
 # Run the application.
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
