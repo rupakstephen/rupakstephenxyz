@@ -19,14 +19,16 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 console.log("DB Medium: " + DB_MEDIUM)
 // // Connect to MongoDB
+var connect_url = "";
 if (DB_MEDIUM == "local"){
-  // local connection to docker container
-  mongoose.connect(`mongodb://${DB_URL}:${DB_PORT}`).then(() => {console.log("Connection to DB Established")})
+    // local connection to docker container
+    connect_url = `mongodb://${DB_URL}:${DB_PORT}`
 } else {
-  // remote connection to atlas
-  mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`).then(() => {console.log("Connection to DB Established")})
+    // remote connection to atlas
+    connect_url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_URL}/?retryWrites=true&w=majority`
 }
-
+console.log(connect_url)
+mongoose.connect(connect_url).then(() => {console.log("Connection to DB Established")})
 
 // Define routes and middleware
 app.listen(PORT, () => {
