@@ -5,18 +5,19 @@ services:
     container_name: react_app
     build: 
       context: ./client
-    image: rupakstephen/rupakstephenxyz-client
+    image: rupakstephen/rupakstephenxyz-client:rpi
     command: npm start
     ports: 
       - 3000:3000
     networks:
       - app-network
+    platform: linux/arm64/v8
 
   server:
     container_name: node_server
     build:
       context: ./server
-    image: rupakstephen/rupakstephenxyz-server
+    image: rupakstephen/rupakstephenxyz-server:rpi
     command: node server.js
     environment:
       NODE_ENV: production
@@ -25,6 +26,7 @@ services:
       - 5000:5000
     networks:
       - app-network
+    platform: linux/arm64/v8
 
   db:
     container_name: mongodb
