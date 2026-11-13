@@ -39,3 +39,9 @@ jspm_packages
 
 # Local Netlify folder
 .netlify
+
+# App
+.env
+data/
+client/build
+.claude/worktrees/

@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
 
 
 function ReviewCard(props) {
@@ -26,6 +27,11 @@ function ReviewCard(props) {
                 </Card.Text>
                 <Card.Text>{props.data.review_str}</Card.Text>
                 {review_tags}
+                {props.onDelete && (
+                    <div className="mt-2">
+                        <Button variant="outline-danger" size="sm" onClick={props.onDelete}>Delete</Button>
+                    </div>
+                )}
             </Card.Body>
         </Card>
     );
