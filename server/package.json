@@ -1,19 +1,13 @@
 {
-  "name": "rupakstephenxyz",
-  "version": "1.0.0",
-  "description": "Repository for my personal website!",
-  "main": "index.js",
+  "name": "rupakstephenxyz-server",
+  "version": "2.0.0",
+  "private": true,
+  "engines": { "node": ">=24" },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "node --test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.2.3",
-    "swagger-ui-express": "^5.0.1",
-    "uuid": "^10.0.0"
+    "express": "^4.19.2"
   }
 }
