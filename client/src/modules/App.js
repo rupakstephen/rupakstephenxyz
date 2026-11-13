@@ -3,7 +3,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './NavigationBar';
-import Home from './Home';
+import Resume from './Resume';
 import About from './About';
 import Review from './Review';
 import Blog from './Blog';
@@ -23,7 +23,7 @@ function App() {
         <NavBar />
         <div className="App">
           <Routes>
-            <Route index path="/" element={<Home />} />
+            <Route index path="/" element={<Resume />} />
             <Route path="/about" element={<About />} />
             <Route path="/review" element={<Review />} />
             <Route path="/blog" element={<Blog />} />
