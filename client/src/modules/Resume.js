@@ -1,9 +1,11 @@
 import Container from 'react-bootstrap/Container';
+import { EmailLink, LINKEDIN } from './Contact';
 
-// TODO (owner): add email / LinkedIn here if you want them public. Phone is deliberately left off.
+// Phone is deliberately left off.
 const CONTACT = [
   { label: 'Boston, MA' },
   { label: 'github.com/rupakstephen', href: 'https://github.com/rupakstephen' },
+  { label: 'LinkedIn', href: LINKEDIN },
 ];
 
 const SUMMARY =
@@ -118,7 +120,16 @@ function Resume() {
   return (
     <Container style={{ textAlign: 'left', maxWidth: 900 }}>
       <br />
-      <h1>Rupak Stephen</h1>
+      <h1>Hi, I'm Rupak. I help research teams build prototypes and connect systems.</h1>
+      <p className="lead">
+        Software engineer in Boston. By day I build full-stack apps and data pipelines for government
+        sponsors. By night I run a home server, rank my meals in an app I built, and write about manga.
+      </p>
+      <p>
+        <EmailLink button>Email me</EmailLink>{' '}
+        <span className="badge text-bg-success ms-2">Open to software roles in the greater Boston area</span>
+      </p>
+      <hr />
       <p className="text-muted">
         {CONTACT.map((c, i) => (
           <span key={c.label}>
@@ -126,6 +137,7 @@ function Resume() {
             {c.href ? <a href={c.href}>{c.label}</a> : c.label}
           </span>
         ))}
+        {'  |  '}<EmailLink />
       </p>
 
       <Section title="Professional Summary"><p>{SUMMARY}</p></Section>
