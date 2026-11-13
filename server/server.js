@@ -50,6 +50,17 @@ const LOCK_AFTER = 5, LOCK_MS = 15 * 60 * 1000;
 
 const app = express();
 app.set("trust proxy", 1);
+app.disable("x-powered-by");
+app.use((req, res, next) => {
+  res.set({
+    // styles allow inline because react-bootstrap sets style attributes; images allow https for markdown posts
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "same-origin",
+    "X-Frame-Options": "DENY",
+  });
+  next();
+});
 app.use(express.json({ limit: "1mb" }));
 
 app.post("/api/login", (req, res) => {

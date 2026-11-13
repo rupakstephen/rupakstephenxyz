@@ -13,7 +13,11 @@ test("public reads, gated writes, post + review round trip", async (t) => {
     fetch(base + p, { method, headers: { "content-type": "application/json", ...(cookie && { cookie }) },
       body: body && JSON.stringify(body) });
 
-  assert.equal((await call("/reviews")).status, 200);
+  const r = await call("/reviews");
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get("x-powered-by"), null);
+  assert.match(r.headers.get("content-security-policy"), /script-src 'self'/);
+  assert.equal(r.headers.get("x-content-type-options"), "nosniff");
   assert.equal((await call("/posts")).status, 200);
   assert.equal((await call("/posts", "POST", { title: "x", body: "y" })).status, 401);
   assert.equal((await call("/reviews/abc", "DELETE")).status, 401);
