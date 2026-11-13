@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './NavigationBar';
 import Resume from './Resume';
 import About from './About';
+import Projects from './Projects';
 import Review from './Review';
 import Blog from './Blog';
 import Post from './Post';
@@ -25,7 +26,8 @@ function App() {
           <Routes>
             <Route index path="/" element={<Resume />} />
             <Route path="/about" element={<About />} />
-            <Route path="/review" element={<Review />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/review"element={<Review />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/new" element={<Editor />} />
             <Route path="/blog/:slug" element={<Post />} />

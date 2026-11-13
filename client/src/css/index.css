@@ -7,6 +7,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Kelly green theme (retro-Eagles inspired). Deep green carries text/buttons for contrast; bright green is accent only. */
+:root {
+  --bs-primary: #0b7a3b;
+  --bs-primary-rgb: 11, 122, 59;
+  --bs-success: #0b7a3b;
+  --bs-success-rgb: 11, 122, 59;
+  --bs-link-color: #0b7a3b;
+  --bs-link-color-rgb: 11, 122, 59;
+  --bs-link-hover-color: #075a2a;
+  --bs-link-hover-color-rgb: 7, 90, 42;
+  --accent: #4cbb17;
+  --bs-body-bg: #f6faf5;
+}
+.btn-primary {
+  --bs-btn-bg: #0b7a3b;
+  --bs-btn-border-color: #0b7a3b;
+  --bs-btn-hover-bg: #075a2a;
+  --bs-btn-hover-border-color: #075a2a;
+  --bs-btn-active-bg: #075a2a;
+  --bs-btn-active-border-color: #075a2a;
+  --bs-btn-disabled-bg: #0b7a3b;
+  --bs-btn-disabled-border-color: #0b7a3b;
+}
+.navbar { border-bottom: 3px solid var(--accent); background-color: #fff !important; }
+.navbar-brand { font-weight: 700; color: #0b7a3b !important; }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
