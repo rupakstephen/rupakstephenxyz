@@ -1,81 +1,53 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Stack from 'react-bootstrap/Stack';
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const leftJustify = {
-  "text-align": "left"
+
+const flexboxCenter = {
+  "display": "flex",
+  "justify-content": "center"
 }
 
 function About() { 
     return ( 
-      <Container>
-      <Row>
-        <Col>
-          <br />
-          <h1> A bit about me...</h1>
-          <br />
-          <Stack style={leftJustify}>
+       <Container>
+        <Row>
+          <Col>
+            <br />
             <div>
+              <h1> Hi, I'm Rupak!</h1>
               <p>
-                I am a passionate and eager Software Engineer with a dual Computer Science and Information Technology degree. I am a
-                hard-working, sociable, teammate who believes in learning at every chance possible!
+                I am a developer that just wanted to practice a bunch of different types of skills such as...
               </p>
+              <ListGroup horizontal style={flexboxCenter}>
+                  <ListGroup.Item>Full-Stack Development</ListGroup.Item>
+                  <ListGroup.Item>UI/UX Design</ListGroup.Item>
+                  <ListGroup.Item>Review Writing</ListGroup.Item>
+                  <ListGroup.Item>Databse Stuff</ListGroup.Item>
+              </ListGroup>
             </div>
+            <br />
             <div>
-              <h4>Work Experience</h4>
-              <Stack gap={2}>
-                <div>
-                  <h6>Assistant Staff, <i>MIT Lincoln Laboratory</i></h6>
-                  <p>
-                    Lorem ipsum dolor.
-                  </p>
-                </div>
-                <div>
-                  <h6>Corporate Business Intern, <i>Johnson and Johnson</i></h6>
-                  <p>
-                    Lorem ipsum dolor.
-                  </p>
-                </div>
-              </Stack>
-            </div>
-            <div>
-              <h4>Education</h4>
-              <Stack gap={2}>
-                <div>
-                  <h6>B.S., Computer Science/Information Technology, <i>Rensselaer Polytechnic Institute</i></h6>
-                  <ul>
-                    <li>GPA: 3.62</li>
-                    <li>Dean's List: Fall '19, Spring '20, Spring '21, Spring '22</li>
-                  </ul>
-                </div>
-              </Stack>
-              <h4>Skills</h4>
-              <Stack gap={2}>
-                <div>
-                  <h6>Programming Langages</h6>
-                  <ul>
-                    <li>Python (Proficient)</li>
-                    <li>C++ (Proficient)</li>
-                    <li>C (Working Knowledge)</li>
-                    <li>SQL (Working Knowledge)</li>
-                  </ul>
-                  <h6>Technologies/Frameworks</h6>
-                  <ul>
-                    <li>React</li>
-                    <li>Angular</li>
-                    <li>Node</li>
-                    <li>Express</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                  </ul>
-                </div>
-              </Stack>
-            </div>
-          </Stack>
-        </Col>
-      </Row>
-    </Container>  
-    ); 
-} 
+              <h3>About this website...</h3>
+              <p>
+                This website is primarily a way for me to show my skills in multiple different ways, but it's also just a kind of way for me to have fun with designing full architechure 
+                applications. I wanted this to be a way for me to practice other skills such as deployment on mutliple levels and how to set up hostnames, domain names, and other wacky 
+                and things that are apart of the great concept that is web development and information technology!
+              </p>
+              <p>
+                Some of my interests include partaking in video games, playing volleyball (I really enjoy beach and grass vball), and messing around with new web development technologies
+                and not being good at using them.
+              </p>
+              <p>
+                Recently, I have realized that I consume a lot of different forms of media (books, movies, manga, television, etc.) and wanted to give myself the opportunity to do
+                multiple things. I wanted to brush up on my writing skills, figure out what kind of opinions I have about certain things, and there no better way to do that then pair
+                it up with practicing my development and deployment skills! So thus, this site has been created.
+              </p>
+            </div>            
+          </Col>
+        </Row>
+      </Container> 
+    )
+};
 export default About; 
